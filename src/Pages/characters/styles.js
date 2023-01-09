@@ -4,7 +4,7 @@ export const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
   justify-content: center;
 
   @media (max-width: 1024px) {
