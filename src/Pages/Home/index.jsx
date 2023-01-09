@@ -11,7 +11,7 @@ export const Home = () => {
   const { setDisabled, navigate } = useStarContext();
   useEffect(() => {
     setDisabled(true);
-  }, [setDisabled]);
+  });
   return (
     <>
       <Section>
