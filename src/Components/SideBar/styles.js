@@ -38,15 +38,14 @@ export const InputControl = styled.div`
 
 export const Input = styled.input`
   ${({ menu }) => css`
-    ${menu ? `color: white;` : `color: transparent;`}
-
     width: 100%;
     padding: 12px 12px 12px 50px;
     font-size: 22px;
     background-color: #00b5cc;
     border-radius: 5px;
-
+    ${menu ? `color: white;` : `color: transparent;`}
     &:disabled {
+      background-color: #00b5cc;
       opacity: 0.5;
       cursor: not-allowed;
     }
