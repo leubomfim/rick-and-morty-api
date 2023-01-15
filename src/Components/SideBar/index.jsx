@@ -18,6 +18,9 @@ export const SideBar = () => {
     searchLoc,
     setSearchLoc,
   } = useStarContext();
+  
+  const checkIfOnCharPage = diffSearch === 'char'
+  
   return (
     <S.MenuBackground menu={openMenu}>
       <S.CloseOrOpenMenu menu={openMenu} onClick={() => setOpenMenu(!openMenu)}>
@@ -25,25 +28,15 @@ export const SideBar = () => {
       </S.CloseOrOpenMenu>
       <S.SideMenu menu={openMenu}>
         <S.InputControl>
-          {diffSearch === 'char' && (
             <S.Input
               disabled={disabled}
               menu={openMenu}
               type="text"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              value={checkIfOnCharPage ? searchValue : searchLoc}
+              onChange={(e) => {
+                checkIfOnCharPage ? setSearchValue(e.target.value) : setSearchLoc(e.target.value);
+              }}
             />
-          )}
-
-          {diffSearch === 'loc' && (
-            <S.Input
-              disabled={disabled}
-              menu={openMenu}
-              type="text"
-              value={searchLoc}
-              onChange={(e) => setSearchLoc(e.target.value)}
-            />
-          )}
 
           <S.SearchIcon onClick={() => setOpenMenu(!openMenu)} menu={openMenu}>
             <AiOutlineSearch />
